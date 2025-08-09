@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Courier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="courier.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm p-3 mb-4 sticky-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <div class="fw-bold fs-4 me-4">Uber</div>
+                <nav class="d-none d-md-flex">
+                    <a href="ride.html" class="nav-link text-secondary me-3">Ride</a>
+                    <a href="hourly.html" class="nav-link text-secondary me-3">Rentals</a>
+                    <a href="courier.html" class="nav-link text-dark fw-semibold border-bottom border-2 border-dark me-3">Courier</a>
+                </nav>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="d-none d-md-flex text-secondary me-3">
+                    <i class="fa-solid fa-list-check me-1"></i>
+                    Activity
+                </div>
+                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center p-2">
+                    <i class="fa-solid fa-user text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area: Sidebar and Map -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar for Courier details -->
+            <div class="col-md-4 bg-white p-4 shadow-sm" style="min-height: calc(100vh - 64px);">
+                <div class="mb-4 d-flex justify-content-center">
+                    <img src="https://d3i4yxtzktqr9n.cloudfront.net/web-plan/c824e49b7d43abd5.jpg" alt="Courier Illustration" class="img-fluid rounded-3" />
+                </div>
+                <div class="mt-4">
+                    <h2 class="fs-2 fw-bold mb-3">Courier</h2>
+                    <p class="text-secondary">Have a courier deliver something for you. Get packages delivered in the time it takes to drive there.</p>
+                </div>
+                
+                <div class="mt-4 d-flex justify-content-between gap-2">
+                    <button id="send-button" class="btn btn-dark w-50 py-2 fw-bold">Send</button>
+                    <button id="receive-button" class="btn btn-outline-dark w-50 py-2 fw-bold">Receive</button>
+                </div>
+
+                <div class="mt-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light border-0">
+                            <i class="fa-solid fa-location-dot text-secondary"></i>
+                        </span>
+                        <input type="text" class="form-control bg-light border-0" placeholder="Pickup location" aria-label="Pickup location">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light border-0">
+                            <i class="fa-solid fa-location-arrow text-secondary"></i>
+                        </span>
+                        <input type="text" class="form-control bg-light border-0" placeholder="Dropoff location" aria-label="Dropoff location">
+                    </div>
+                </div>
+
+                <button class="btn btn-dark w-100 py-3 mt-4 rounded-pill fw-bold fs-5">
+                    Search
+                </button>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="col-md-8 p-0 position-relative" style="min-height: calc(100vh - 64px);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.4031781943063!2d80.64474671072396!3d16.505731084173117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb51a430ff%3A0xe6ed5ede725b304b!2sCodegnan%20Vijayawada!5e0!3m2!1sen!2sin!4v1753167297713!5m2!1sen!2sin" 
+                        class="w-100 h-100" style="border:0;" allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="position-absolute bottom-0 end-0 m-4 bg-white p-2 rounded-3 shadow-sm d-none d-md-block">
+                    <button class="btn btn-light rounded-circle mb-1">
+                        <i class="fa-solid fa-plus text-secondary"></i>
+                    </button>
+                    <hr class="my-1">
+                    <button class="btn btn-light rounded-circle">
+                        <i class="fa-solid fa-minus text-secondary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="courier.js"></script>
+</body>
+</html>

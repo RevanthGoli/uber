@@ -1,0 +1,291 @@
+/* --- Base & Utility --- */
+body {
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.navbar-dark {
+            background-color: #000;
+        }
+
+        /* This is the new style to fix the dropdown overlay issue */
+        .navbar .dropdown-menu {
+            position: absolute;
+            z-index: 1050; /* A high z-index to ensure it appears on top */
+        }
+
+/* Dropdown menu */
+.dropdown-menu {
+  border-radius: 10px;
+  padding: 10px 0;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 200px;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  white-space: nowrap;
+}
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Submenu */
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  min-width: 200px;
+  z-index: 1050; /* Make sure submenu is above */
+}
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.nav-link i {
+  font-size: 0.85rem;
+  margin-left: 5px;
+}
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Second Navbar (White) */
+.navbar.bg-white .nav-link {
+  color: black !important;
+  font-weight: 500;
+}
+.navbar.bg-white .nav-link:hover {
+  color: #000000;
+}
+
+/* Hero Section */
+.ride-form .input-group-text {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+}
+
+/* Cards Section */
+.container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+.suggestions-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+.card-custom {
+  background-color: #F3F3F3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+.card-custom:hover {
+  transform: translateY(-5px);
+}
+.card-img-top-custom {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.card-body-custom {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-text-custom {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+.card-title-custom {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+.btn-custom {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  color: #212529;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.btn-custom:hover {
+  background-color: #e9ecef;
+  color: #212529;
+}
+.card-content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-content-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Flex layout for cards */
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.card-image-wrapper {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.card-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Slides section */
+.slides {
+  margin-top: 2%;
+  padding: 0 1rem;
+}
+.slides .card-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.slides .card-group .card {
+  max-width: 415px;
+  min-height: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  flex: 1 1 300px; /* flexible basis for responsiveness */
+}
+.slides .card-group .card:hover {
+  transform: translateY(-5px);
+}
+.slides .card-img-top {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Responsive adjustments */
+
+/* Tablets and smaller desktops */
+@media (max-width: 991.98px) {
+  .card-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .card-content-left,
+  .card-content-right {
+    width: 100%;
+  }
+  .card-content-right {
+    margin-top: 1rem;
+  }
+  .btn-custom {
+    align-self: center;
+    border-radius: 12px;
+  }
+  .card-image-wrapper {
+    margin-bottom: 1rem;
+  }
+  .suggestions-title {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 575.98px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  .card-custom {
+    padding: 1rem;
+  }
+  .btn-custom {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .slides .card-group {
+    gap: 1rem;
+  }
+  .slides .card-group .card {
+    max-width: 100%;
+    min-height: auto;
+    flex: 1 1 100%;
+  }
+  .slides .card-img-top {
+    height: 200px;
+  }
+  .navbar-black,
+  .navbar.bg-white {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .dropdown-menu {
+    min-width: 150px;
+  }
+}
+
+/* Extra small devices (very narrow phones) */
+@media (max-width: 375.98px) {
+  .btn-custom {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .card-title-custom {
+    font-size: 1.1rem;
+  }
+  .suggestions-title {
+    font-size: 2rem;
+  }
+}

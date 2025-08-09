@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber-like Layout</title>
+    <!-- Bootstrap CSS from a CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        /* Custom CSS to define the layout */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .main-app-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 320px; /* Adjust width as needed */
+            min-width: 300px;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            padding: 24px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            overflow-y: auto; /* Allows scrolling if content overflows */
+        }
+
+        .map-area {
+            flex-grow: 1;
+            /* No background color needed as the iframe will cover it */
+            position: relative;
+        }
+        
+        /* Styling for the embedded map iframe */
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Styling for the form elements */
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 12px 16px;
+            background-color: #f7f7f7;
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            border-color: #80bdff;
+        }
+
+        .btn-dark {
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                min-width: unset;
+                height: auto;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            .map-area {
+                height: 50vh; /* Give map some height on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar (Optional, but included for a more complete look) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold fs-4" href="#">Uber</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold text-dark border-bottom border-dark border-3 rounded-0" aria-current="page" href="#">Ride</a>
+                </li>
+                <!-- Added ms-3 for space -->
+                <li class="nav-item ms-3">
+                    <a class="nav-link text-secondary" href="hourly.html">Rentals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="courier.html">Courier</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a class="nav-link text-secondary me-3" href="">Activity</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Application Container -->
+    <div class="main-app-container">
+        
+        <!-- Left Sidebar for Controls -->
+        <div class="sidebar">
+            <h5 class="fw-bold mb-4">Get a ride</h5>
+            
+            <div class="mb-3">
+                <label for="pickup-location" class="form-label visually-hidden">Pickup Location</label>
+                <input type="text" class="form-control" id="pickup-location" placeholder="Pickup location">
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="dropoff-location" class="form-label visually-hidden">Dropoff Location</label>
+                <input type="text" class="form-control" id="dropoff-location" placeholder="Dropoff location">
+                <button class="btn btn-outline-secondary border-start-0" type="button">+</button>
+            </div>
+            
+            <div class="mb-3">
+                <label for="pickup-time" class="form-label visually-hidden">Pickup Time</label>
+                <select class="form-select" id="pickup-time">
+                    <option selected>Pickup now</option>
+                    <option>Schedule a ride</option>
+                </select>
+            </div>
+            
+            <div class="mb-4">
+                <label for="for-me" class="form-label visually-hidden">For Me</label>
+                <select class="form-select" id="for-me">
+                    <option selected>For me</option>
+                    <option>For someone else</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-dark w-100" disabled>Search</button>
+        </div>
+
+        <!-- Right Map Area -->
+        <div class="map-area">
+            <!-- This is where the Google Maps iframe is embedded -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.4031781943063!2d80.64474671072396!3d16.505731084173117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb51a430ff%3A0xe6ed5ede725b304b!2sCodegnan%20Vijayawada!5e0!3m2!1sen!2sin!4v1753167297713!5m2!1sen!2sin" 
+                    class="map-iframe" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
